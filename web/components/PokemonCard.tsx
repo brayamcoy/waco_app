@@ -23,7 +23,6 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({
 }) => {
   const ICON_SIZE = 24;
   const { user } = useAuth();
-  console.log(user);
   const { callApi: callCreate } = useCustomApiCall({
     method: "post",
     path: `/users/favorites/${user?._id}`,

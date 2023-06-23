@@ -12,7 +12,7 @@ const verifyToken = (req: CustomRequest, res: Response, next: NextFunction) => {
   const token = authHeader.split(' ')[1];
 
   try {
-    const verified = jwt.verify(token, process.env.JWT_SECRET) as { user: any };
+    const verified = jwt.verify(token, process.env.JWT_SECRET?? "");
     req.user = verified;
 
     next();
@@ -22,4 +22,3 @@ const verifyToken = (req: CustomRequest, res: Response, next: NextFunction) => {
 };
 
 export default verifyToken;
-
